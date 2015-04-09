@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>검색창 DaumAPI</title>
+</head>
+
+<body>
+<div id="searchArea">
+    <input id="searchBar" type="text" size="15">
+    <button id="searchButton">검색</button>
+</div>
+
+<div id="wrap"></div>
+
+<button id="moreResult">더보기</button>
+<script type="text/template" id="listTemplate">
+    검색창
+    <ul>
+        <% for(var i=0 ; i < list.length; i++) {%>
+        <li>
+            <!--<p><%= list[i].title %></p>-->
+            <p><a href=" <%= list[i].link %>"><%= list[i].title %></a></p>
+            <!--<p><%= list[i].moviePoint.expectPointAvg %></p>-->
+        </li>
+        <%} %>
+    </ul>
+</script>
+
+<script src="../util.js"></script>
+<script src="search_api.js"></script>
+</body>
+</html>
+
