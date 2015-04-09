@@ -1,0 +1,17 @@
+#box{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+
+}
+#scoreBox{
+    margin-top: 300px;
+}
+#score{
+    color: red;
+    font-size: 30px;
+    font-family: fantasy;
+}
