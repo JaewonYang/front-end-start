@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>검색서비스</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>검색 서비스</h1>
+    <h5>검색하고 싶은 단어를 누른 후 두번 클릭해주세요!</h5>
+    <form class="form-inline">
+        <div class="input-group">
+            <input type="text" class="form-control" id="textBar" placeholder="검색어를 넣어주세요">
+
+            <div class="input-group-addon">
+                <button type = "button" class="btnbtn-primary" id="searchbtn">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <ul class="nav nav-tabs" id="menuTab" style="margin-top:30px">
+        <li class="active" ><a href="#" id="board">게시판</a></li>
+        <li ><a href="#" id="vclip">동영상</a></li>
+        <li ><a href="#" id="image">이미지</a></li>
+        <li ><a href="#" id="knowledge">팁</a></li>
+        <li ><a href="#" id="blog">블로그</a></li>
+        <li ><a href="#" id="cafe">카페</a></li>
+    </ul>
+
+    <!-- 이미지 있을경우만 이미지 노출 -->
+    <div class="mov-panel" style="margin-top:30px">
+        <div id="wrap"></div>
+    </div>
+
+    <!-- 더보기 있을경우만 노출 -->
+    <button class="btn btn-default btn-block" id="moreResult">더보기</button>
+</div>
+<div id="loading"></div>
+
+<script type="text/template" id="listTemplate">
+    <ul>
+        <% for(var i=0 ; i < list.length; i++) {%>
+        <li>
+            <p><a href=" <%= list[i].link %>"><%= list[i].title %></a></p>
+            <p><%= list[i].description %></p>
+            <p>원본 결과 링크  <a href=" <%= list[i].link %>"><%= list[i].link %></a></p>
+            <p id="imgResult">  <img src = '<%= list[i].image%>' width="100px"  > </p>
+        </li>
+        <%} %>
+    </ul>
+</script>
+<script src="util.js"></script>
+<script src="search.js"></script>
+
+</body>
+</html>
