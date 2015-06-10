@@ -13,12 +13,17 @@ console.log(cards)
 var doms = [];
 for(var i=0; i < cards.length; i++){
 
-    doms.push('<div class="card">' + cards[i]+ '</div>');
+    doms.push(
+            '<div class="card " data-value="' + cards[i]+ '">' +
+            '<div class=""> '+ cards[i]  +' </div>' +
+            '</div>'
+    );
 }
 
 $board.html(doms.join(''));
 
-.addEventListener('click', function (event) {
 
-    $('gameBoard.card').css("background-color","white");
-})
+//.addEventListener('click', function (event) {
+//
+//    $('gameBoard.card').css("background-color","white");
+//})
