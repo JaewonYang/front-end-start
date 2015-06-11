@@ -22,8 +22,57 @@ for(var i=0; i < cards.length; i++){
 
 $board.html(doms.join(''));
 
+//클릭 이벤트 주기
+var cardStatus = 'close';
+var openValue = 0;
+var score = 0;
 
-//.addEventListener('click', function (event) {
-//
-//    $('gameBoard.card').css("background-color","white");
-//})
+$board.on('click', '.card', function(event){
+
+    var $card = $(event.currentTarget);
+
+    if(cardStatus === 'close'){
+
+        $card.addClass('open');
+        openedValue = $card.data('value');
+        cardStatus = 'open1';
+    }
+    else if(cardStatus === "open1"){
+
+        if($card.hasClass('open')){
+
+            return;
+        }
+        $card.addClass('open');
+        cardStatus = 'open2';
+
+        //맞으면
+        if(openedValue === $card.data('value')) {
+
+            score++;
+            console.log(score)
+            $('.card.open').addClass('good');
+            cardStatus = 'close';
+        }
+        //틀리면
+        else {
+            setTimeout(function(){
+
+                $('.card').each(function(index, el){
+                    var $el = $(el);
+                    if(!$el.hasClass('good')){
+                        $el.removeClass('open');
+                    }
+                })
+                cardStatus = 'close';
+
+            }, 1000);
+        }
+    }
+});
+
+
+
+
+
+
